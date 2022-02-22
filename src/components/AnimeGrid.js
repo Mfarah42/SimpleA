@@ -1,11 +1,14 @@
 import React from "react";
+import AnimeInfo from "./AnimeInfo";
 
 const AnimeGrid = ({ isLoading, animeList }) => {
   return isLoading ? (
     <h1>Loading...</h1>
   ) : (
     <section className="cards">
-      <h1>{typeof animeList}</h1>
+      {animeList.map((anime) => (
+        <AnimeInfo key={anime.mal_id} anime={anime} />
+      ))}
     </section>
   );
 };

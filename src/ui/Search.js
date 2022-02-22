@@ -3,20 +3,24 @@ import React, { useState } from "react";
 const Search = ({ getQuery }) => {
   const [text, setText] = useState("");
 
-  const onChange = (q) => {
-    setText(q);
-    getQuery(q);
+  const getText = (e) => {
+    setText(e.target.value);
+    getQuery(e.target.value);
   };
 
   return (
     <section className="search">
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
         <input
           type="text"
           className="from-control"
           placeholder="Search Characters"
           value={text}
-          onChange={(e) => onChange(e.target.value)}
+          onChange={(e) => getText(e)}
           autoFocus
         />
       </form>

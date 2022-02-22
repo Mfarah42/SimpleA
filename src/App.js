@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import Header from "./components/Header";
 import AnimeGrid from "./components/AnimeGrid";
-// import Search from "./ui/Search";
+import Search from "./ui/Search";
+import { debounce } from "lodash";
 import "./App.css";
 
 function App() {
@@ -15,19 +16,22 @@ function App() {
     const fetchAnime = async () => {
       setIsLoading(true);
       const result = await axios(
-        `https://api.jikan.moe/v4/anime?q=one%20piece`
+        `https://api.jikan.moe/v4/anime?q=${query}&order_by=score&&sort=desc`
       );
-      console.log(result.data.data[0]);
-      console.log(typeof result.data.data);
       setAnimeList(result.data.data);
       setIsLoading(false);
     };
     fetchAnime();
   }, [query]);
 
+  const getQuery = (q) => {
+    setQuery(q);
+  };
+  const debounceChangeHandler = useMemo(() => debounce(getQuery, 200), []);
   return (
     <div>
       <Header />
+      <Search getQuery={debounceChangeHandler} />
       <AnimeGrid isLoading={isLoading} animeList={animeList} />
     </div>
   );
