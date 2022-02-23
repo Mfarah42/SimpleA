@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import axios from "axios";
-import Header from "./components/Header";
-import AnimeGrid from "./components/AnimeGrid";
-import Search from "./ui/Search";
+import Header from "./components/layout/Header";
+import AnimeGrid from "./components/anime/AnimeGrid";
+import Search from "./components/anime/Search";
 import { debounce } from "lodash";
 import "./App.css";
 
@@ -30,9 +31,11 @@ function App() {
   const debounceChangeHandler = useMemo(() => debounce(getQuery, 200), []);
   return (
     <div>
-      <Header />
-      <Search getQuery={debounceChangeHandler} />
-      <AnimeGrid isLoading={isLoading} animeList={animeList} />
+      <Router>
+        <Header />
+        <Search getQuery={debounceChangeHandler} />
+        <AnimeGrid isLoading={isLoading} animeList={animeList} />
+      </Router>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import AnimeInfo from "./AnimeInfo";
+import AnimeInfoCard from "./AnimeInfoCard";
 
 const AnimeGrid = ({ isLoading, animeList }) => {
   return isLoading ? (
@@ -7,7 +7,7 @@ const AnimeGrid = ({ isLoading, animeList }) => {
   ) : (
     <section className="cards">
       {animeList.map((anime) => (
-        <AnimeInfo key={anime.mal_id} anime={anime} />
+        <AnimeInfoCard key={anime.mal_id} anime={anime} />
       ))}
     </section>
   );

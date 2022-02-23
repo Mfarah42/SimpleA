@@ -1,6 +1,7 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
 
-const AnimeInfo = ({ anime }) => {
+const AnimeInfoCard = ({ anime }) => {
   return (
     <div className="movie_card">
       <div className="info_section">
@@ -40,4 +41,4 @@ const AnimeInfo = ({ anime }) => {
   );
 };
 
-export default AnimeInfo;
+export default AnimeInfoCard;

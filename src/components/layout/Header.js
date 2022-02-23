@@ -1,5 +1,5 @@
 import React from "react";
-import onepieceLogo from "../img/onepunch.png";
+import onepieceLogo from "../../img/onepunch.png";
 
 const Header = () => {
   return (

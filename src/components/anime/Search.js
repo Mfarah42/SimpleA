@@ -18,7 +18,7 @@ const Search = ({ getQuery }) => {
         <input
           type="text"
           className="from-control"
-          placeholder="Search Characters"
+          placeholder="Search Anime"
           value={text}
           onChange={(e) => getText(e)}
           autoFocus
