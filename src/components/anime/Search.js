@@ -1,26 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useMemo } from "react";
+import AnimeContext from "../../context/animeContext/AnimeContext";
+import { debounce } from "lodash";
 
-const Search = ({ getQuery }) => {
+const Search = () => {
+  const { fetchAnime } = useContext(AnimeContext);
+
   const [text, setText] = useState("");
-
-  const getText = (e) => {
+  const debounceChangeHandler = useMemo(
+    () => debounce(fetchAnime, 1200),
+    [fetchAnime]
+  );
+  const handleChange = (e) => {
     setText(e.target.value);
-    getQuery(e.target.value);
+    fetchAnime(debounceChangeHandler);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (text === "") {
+      alert("Text not entered");
+    }
   };
 
   return (
     <section className="search">
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
-      >
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           className="from-control"
           placeholder="Search Anime"
           value={text}
-          onChange={(e) => getText(e)}
+          onChange={handleChange}
           autoFocus
         />
       </form>

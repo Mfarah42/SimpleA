@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import AnimeInfoCard from "./AnimeInfoCard";
+import AnimeContext from "../../context/animeContext/AnimeContext";
 
-const AnimeGrid = ({ isLoading, animeList }) => {
+const AnimeGrid = () => {
+  const { animeList, isLoading } = useContext(AnimeContext);
+
   return isLoading ? (
     <h1>Loading...</h1>
   ) : (
