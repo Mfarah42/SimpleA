@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import AnimeInfoCard from "./AnimeInfoCard";
+import AnimeCard from "./AnimeCard";
 import AnimeContext from "../../context/animeContext/AnimeContext";
 
 const AnimeGrid = () => {
@@ -10,7 +10,7 @@ const AnimeGrid = () => {
   ) : (
     <section className="cards">
       {animeList.map((anime) => (
-        <AnimeInfoCard key={anime.mal_id} anime={anime} />
+        <AnimeCard key={anime.mal_id} anime={anime} />
       ))}
     </section>
   );
