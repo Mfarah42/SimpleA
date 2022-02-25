@@ -16,7 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/anime/:title" element={<AnimeInfo />} />
+            <Route path="/anime/:id" element={<AnimeInfo />} />
           </Routes>
         </div>
       </Router>

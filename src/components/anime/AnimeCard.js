@@ -3,10 +3,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const AnimeCard = ({
-  anime: { title, aired, images, duration, rating, synopsis },
+  anime: { mal_id, title, aired, images, duration, rating, synopsis },
 }) => {
   return (
-    <Link to={`/anime/${title}`}>
+    <Link to={`/anime/${mal_id}`}>
       <div
         className="movie_card"
         onClick={() => {

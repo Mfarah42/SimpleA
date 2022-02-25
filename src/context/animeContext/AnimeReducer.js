@@ -1,9 +1,15 @@
 const AnimeReducer = (state, action) => {
   switch (action.type) {
-    case "GET_ANIME":
+    case "GET_ANIMES":
       return {
         ...state,
         animeList: action.payload,
+        loading: false,
+      };
+    case "GET_ANIME":
+      return {
+        ...state,
+        anime: action.payload,
         loading: false,
       };
     case "SET_LOADING":
