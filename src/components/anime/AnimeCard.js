@@ -31,10 +31,7 @@ const AnimeCard = ({
           <div className="movie_social">
             <ul>
               <li>
-                <i className="material-icons">Share something</i>
-              </li>
-              <li>
-                <i className="material-icons">Something here</i>
+                <i className="material-icons">Show More</i>
               </li>
             </ul>
           </div>

@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <Link to={"/"}>
       <header className="center">
-        <img src={onepieceLogo} alt="One Piece Logo" />
+        <img src="#" alt="One Piece Logo" />
       </header>
     </Link>
   );

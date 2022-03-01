@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import AnimeCard from "./AnimeCard";
 import AnimeContext from "../../context/animeContext/AnimeContext";
+import Spinner from "../layout/Spinner";
 
 const AnimeGrid = () => {
   const { animeList, isLoading } = useContext(AnimeContext);
 
   return isLoading ? (
-    <h1>Loading...</h1>
+    <Spinner />
   ) : (
     <section className="cards">
       {animeList.map((anime) => (
