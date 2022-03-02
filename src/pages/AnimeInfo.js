@@ -23,16 +23,16 @@ const AnimeInfo = () => {
       {data && (
         <>
           <div className="anime-title center">{<h1>{data.title}</h1>}</div>
-          <div className="anime-cover">
-            <div className="anime-img-info">
+          <div className="anime-cover center">
+            <div className="anime-img-info center">
               <img
-                className="anime-cover-img center"
+                className="anime-cover-img "
                 src={data.images.jpg.large_image_url}
                 alt="cover-img"
               />
             </div>
 
-            <div className="anime-info ">
+            <div className="anime-info card center">
               <p>woooordssss</p>
             </div>
           </div>

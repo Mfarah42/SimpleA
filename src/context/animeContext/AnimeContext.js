@@ -28,7 +28,6 @@ export const AnimeProvider = ({ children }) => {
   };
 
   // Get Single Anime
-  // Get Search Results
   const fetchAnime = async (anime) => {
     setLoading();
     const result = await axios(`https://api.jikan.moe/v4/anime/${anime}`);
@@ -41,6 +40,8 @@ export const AnimeProvider = ({ children }) => {
       });
     }
   };
+
+  // Get Anime Images
 
   // Set Loading
   const setLoading = () => dispatch({ type: "SET_LOADING" });

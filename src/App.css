@@ -59,14 +59,21 @@ body {
 }
 .anime-img-info {
   width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.05);
   background-color: transparent;
 }
 .anime-info {
   width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: white;
+}
+.card {
+  padding: 1rem;
+  border: #ccc 1px dotted;
+  margin: 0.7rem 0;
 }
 .anime-cover-img {
-  margin-left: 80px;
+  /* margin-left: 80px; */
+  margin: auto;
   border: 5px solid rgba(0, 0, 0, 0.05);
   width: 300px;
   height: 450px;
