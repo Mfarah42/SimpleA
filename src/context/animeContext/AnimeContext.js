@@ -9,6 +9,7 @@ export const AnimeProvider = ({ children }) => {
   const initialState = {
     animeList: [],
     anime: {},
+    animeStats: {},
     loading: false,
   };
 
@@ -16,6 +17,7 @@ export const AnimeProvider = ({ children }) => {
 
   // Get Search Results
   const fetchAnimes = async (text) => {
+    console.log("Fetch called");
     setLoading();
     const result = await axios(
       `https://api.jikan.moe/v4/anime?q=${text}&order_by=score&&sort=desc`
@@ -41,7 +43,21 @@ export const AnimeProvider = ({ children }) => {
     }
   };
 
-  // Get Anime Images
+  // Get Statistics
+  const fetchAnimeStats = async (anime) => {
+    setLoading();
+    const result = await axios(
+      `https://api.jikan.moe/v4/anime/${anime}/statistics`
+    );
+    if (result.status === 404) {
+      window.location = "/notfound";
+    } else {
+      dispatch({
+        type: "GET_ANIME_STATS",
+        payload: result.data,
+      });
+    }
+  };
 
   // Set Loading
   const setLoading = () => dispatch({ type: "SET_LOADING" });
@@ -53,8 +69,10 @@ export const AnimeProvider = ({ children }) => {
         animeList: state.animeList,
         isLoading: state.loading,
         anime: state.anime,
+        animeStats: state.animeStats,
         debounceChangeHandler,
         fetchAnime,
+        fetchAnimeStats,
       }}
     >
       {children}

@@ -12,6 +12,11 @@ const AnimeReducer = (state, action) => {
         anime: action.payload,
         loading: false,
       };
+    case "GET_ANIME_STATS":
+      return {
+        ...state,
+        animeStats: action.payload,
+      };
     case "SET_LOADING":
       return {
         ...state,

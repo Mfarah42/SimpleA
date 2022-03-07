@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import AnimeContext from "../../context/animeContext/AnimeContext";
 
 const Search = () => {
@@ -6,16 +6,21 @@ const Search = () => {
 
   const [text, setText] = useState("");
 
+  useEffect(() => {
+    console.log("UseEffect Called");
+    debounceChangeHandler("");
+  }, []);
+
   const handleChange = (e) => {
+    console.log("HandleChange Called");
     setText(e.target.value);
     debounceChangeHandler(text);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (text === "") {
-      alert("Text not entered");
+      alert("Search is empty");
     }
   };
 
@@ -31,6 +36,7 @@ const Search = () => {
           autoFocus
         />
       </form>
+      {text === "" && <h1 className="title center">Top Anime</h1>}
     </section>
   );
 };

@@ -2,6 +2,10 @@
 
 https://codepen.io/tomfarrell/pen/JpxGNm
 
+## Example css
+
+https://codepen.io/team/css-tricks/pen/zxMPNp
+
 ## Statistics url
 
 https://api.jikan.moe/v4/anime/21/statistics
@@ -97,4 +101,44 @@ var horizontalBarChart = new Chart(horizontalBarChartCanvas, {
       }
    }
 });
+```
+
+```
+# Actual array
+arr1 = [426051,218977,178457,105034,42883,22886,9786,4523,3230,8901]
+
+# Weighted array
+arr = [[426051,10],[218977,9],[178457,8],[105034,7],[42883,6],[22886,5],[9786,4],[4523,3],[3230,2],[8901,1]]
+
+arrSum = 0
+rsum = 0
+for i in range(len(arr)):
+    arrSum += arr[i][0]
+    rsum += (arr[i][0] * arr[i][1])
+    # print(arr[i][0] * arr[i][1])
+
+print(rsum/arrSum)
+
+```
+
+```
+
+          {/* cover outside */}
+          <div className="anime-cover center">
+            <div className="anime-title ">{<h1>{data.title}</h1>}</div>
+            {/* Image info */}
+            <div className="anime-img-info center">
+              <img
+                className="anime-cover-img "
+                src={data.images.jpg.large_image_url}
+                alt="cover-img"
+              />
+            </div>
+            {/* info card */}
+            <div className="anime-info card center">
+              <p>woooorrrdssss</p>
+              {animeStats.data && <p>{animeStats.data.completed}</p>}
+            </div>
+          </div>
+
 ```
