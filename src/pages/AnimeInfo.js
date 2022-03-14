@@ -27,15 +27,17 @@ const AnimeInfo = () => {
         <section className="animeInfoContainer ">
           <div className="leftHalf animeInfo">
             <h1 className="center">{data.title}</h1>
-            <img
-              // className="anime-cover-img "
-              src={data.images.jpg.large_image_url}
-              alt="cover-img"
-            />
+            <div className="leftHalfdiv">
+              <img
+                // className="anime-cover-img "
+                src={data.images.jpg.large_image_url}
+                alt="cover-img"
+              />
+              <Chart className="selected" animeStats={animeStats} />
+            </div>
           </div>
           <div className="rightHalf animeInfo">
             <h1>Right half</h1>
-            <Chart animeStats={animeStats} />
           </div>
         </section>
       )}

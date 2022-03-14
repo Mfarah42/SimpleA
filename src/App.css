@@ -88,6 +88,13 @@ body {
   flex: 1;
   padding: 1rem;
 }
+.leftHalfdiv {
+  display: flex;
+  flex-direction: row;
+}
+.selected {
+  border: solid #5b6dcd 10px;
+}
 .leftHalf h1 {
   margin: 10px;
   font-family: "Bangers", sans-serif;
@@ -109,7 +116,7 @@ body {
 .rightHalf {
   flex: 1;
   padding: 1rem;
-  background-color: #fff;
+  background-color: transparent;
   box-shadow: 0px 0px 80px -35px rgba(0, 0, 0, 0.5);
 }
 
