@@ -92,19 +92,21 @@ body {
   display: flex;
   flex-direction: row;
 }
-.selected {
-  border: solid #5b6dcd 10px;
+.test {
+  align-self: center;
+  height: 100%;
 }
 .leftHalf h1 {
   margin: 10px;
   font-family: "Bangers", sans-serif;
-  font-size: 70px;
-  font-size: 3.5vw;
+  font-size: 3em;
   font-weight: 100;
   text-align: center;
 }
+
 .leftHalf img {
-  margin: auto;
+  margin-left: auto;
+  margin-right: 0px;
   border: 5px solid rgba(0, 0, 0, 0.05);
   width: 300px;
   height: 450px;

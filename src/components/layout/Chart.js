@@ -9,6 +9,8 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import ChartDataLabels from "chartjs-plugin-datalabels";
+import { dropRight } from "lodash";
 
 ChartJS.register(
   CategoryScale,
@@ -16,7 +18,8 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ChartDataLabels
 );
 
 const Chart = ({ animeStats }) => {
@@ -28,11 +31,29 @@ const Chart = ({ animeStats }) => {
       },
     },
     responsive: true,
+    layout: {
+      padding: {
+        right: 20,
+      },
+    },
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         display: false,
         position: "right",
       },
+      datalabels: {
+        anchor: "end",
+        align: "right",
+        labels: {
+          title: {
+            font: {
+              weight: "bold",
+            },
+          },
+        },
+      },
+
       title: {
         display: false,
         text: "Chart.js Horizontal Bar Chart",
@@ -41,6 +62,18 @@ const Chart = ({ animeStats }) => {
     scales: {
       x: {
         display: false,
+        grid: {
+          display: false,
+        },
+      },
+      y: {
+        display: true,
+        grid: {
+          display: false,
+        },
+        ticks: {
+          crossAlign: "far",
+        },
       },
     },
   };
@@ -53,6 +86,8 @@ const Chart = ({ animeStats }) => {
           .slice(0)
           .reverse()
           .map((a) => a.votes),
+        barPercentage: 0.5,
+        categoryPercentage: 0.6,
         borderColor: "rgb(53, 162, 235)",
         backgroundColor: "rgba(53, 162, 235, 0.5)",
       },
@@ -62,7 +97,7 @@ const Chart = ({ animeStats }) => {
   return (
     <>
       {animeStats.data && (
-        <div>
+        <div className="test">
           <Bar options={options} data={data} />
         </div>
       )}

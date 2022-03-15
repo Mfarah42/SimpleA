@@ -26,14 +26,14 @@ const AnimeInfo = () => {
       {data && animeStats.data && (
         <section className="animeInfoContainer ">
           <div className="leftHalf animeInfo">
-            <h1 className="center">{data.title}</h1>
+            <h1 className="center htest">{data.title}</h1>
             <div className="leftHalfdiv">
               <img
                 // className="anime-cover-img "
                 src={data.images.jpg.large_image_url}
                 alt="cover-img"
               />
-              <Chart className="selected" animeStats={animeStats} />
+              <Chart animeStats={animeStats} />
             </div>
           </div>
           <div className="rightHalf animeInfo">

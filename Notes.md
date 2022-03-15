@@ -26,6 +26,8 @@ https://api.jikan.moe/v4/anime/1735/characters
 
 https://api.jikan.moe/v4/anime/1735/episodes
 
+https://stackoverflow.com/questions/69150569/add-labels-to-bar-chart-chartjs
+
 ```
 
 Chart.defaults.global.defaultFontFamily = "Lato";
